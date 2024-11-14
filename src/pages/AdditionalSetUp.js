@@ -30,7 +30,7 @@ const AdditionalSetup = () => {
 
             if (response.ok) {
                 alert("추가 설정이 완료되었습니다.");
-                navigate("/success-page"); // 추가 설정 완료 후 홈 페이지로 이동
+                navigate("/"); // 추가 설정 완료 후 홈 페이지로 이동
             } else {
                 console.error("추가 설정 실패:", response.statusText);
             }
