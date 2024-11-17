@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import useLogout from "../hooks/useLogout";
+import deleteAccount from "../api/deleteAccount"; // deleteAccount 함수 불러오기
+
 function Home() {
     const logout = useLogout();
 
@@ -19,6 +21,13 @@ function Home() {
             </div>
             <div style={{ margin: '20px' }}>
                 <button onClick={logout}>Logout</button>
+            </div>
+            <div style={{ margin: '20px' }}>
+                <button 
+                    onClick={deleteAccount} 
+                    style={{ backgroundColor: 'red', color: 'white' }}>
+                    Delete Account
+                </button>
             </div>
         </div>
     );
