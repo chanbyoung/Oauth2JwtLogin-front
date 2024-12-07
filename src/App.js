@@ -5,11 +5,12 @@ import SocialLoginButtons from './components/SocialLoginButtons';
 import LoginSuccess from './pages/LoginSuccess';
 import AdditionalSetup from "./pages/AdditionalSetUp";
 import MemberProfile from "./pages/MemberProfile";
-
+import TestPage from './pages/test';
 function App() {
     return (
         <Router>
             <Routes>
+                <Route path='/test' element={<TestPage/>}/>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/login" element={<SocialLoginButtons/>}/>
                 <Route path="/success-page" element={<LoginSuccess/>}/>

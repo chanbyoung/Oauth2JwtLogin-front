@@ -8,7 +8,6 @@ const LoginSuccess = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-
         const urlParams = new URLSearchParams(location.search);
         const account = urlParams.get('account');
         const tempToken = urlParams.get('tempToken');
@@ -26,7 +25,8 @@ const LoginSuccess = () => {
                 const response = await axiosInstance.get(`/api/v1/auth/issue-final-token`, { params: { tempToken } });
                 console.log("응답 받음:", response);
 
-                const { accessToken, refreshToken } = response.data.data || {};
+                // AuthResDto 응답 처리
+                const { accessToken, refreshToken } = response.data; // 수정된 부분
 
                 if (accessToken && refreshToken) {
                     console.log("토큰 발급 성공");
@@ -42,6 +42,7 @@ const LoginSuccess = () => {
                     throw new Error("토큰 발급 실패: 토큰이 존재하지 않습니다.");
                 }
             } catch (error) {
+                console.error(error)
                 console.error("토큰 발급 실패:", error.response || error.message);
                 navigate('/login');
             } finally {
